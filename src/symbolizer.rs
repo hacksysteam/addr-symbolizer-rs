@@ -23,9 +23,9 @@ use crate::stats::{Stats, StatsBuilder};
 use crate::{Error as E, Result};
 
 #[derive(Debug)]
-struct DownloadedFile {
-    path: PathBuf,
-    size: u64,
+pub struct DownloadedFile {
+    pub path: PathBuf,
+    pub size: u64,
 }
 
 impl DownloadedFile {
@@ -115,7 +115,7 @@ impl AddrSpace for FileAddrSpace {
 ///
 /// The code iterates through every symbol servers, and stops as soon as it was
 /// able to download a matching file.
-fn download_from_symsrv(
+pub fn download_from_symsrv(
     symsrvs: &Vec<String>,
     sympath_dir: impl AsRef<Path>,
     entry: &impl SymcacheEntry,
